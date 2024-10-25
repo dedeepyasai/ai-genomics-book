@@ -20,12 +20,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd ai-genomics-book
           npm install
 
       - name: Build
         run: |
-          cd ai-genomics-book
           npm run build -- --configuration production --base-href=/ai-genomics-book/
 
       - name: Deploy
