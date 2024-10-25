@@ -29,6 +29,6 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: ai-genomics-book/dist/ai-genomics-book
+          folder: dist/ai-genomics-book
           branch: gh-pages
           token: ${{ secrets.GH_TOKEN }}
