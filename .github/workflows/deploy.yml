@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd ai-driven-genomics-book
-          npm install  # Use npm install, which does not require a lock file
+          npm install
 
       - name: Build
         run: |
@@ -33,3 +33,4 @@ jobs:
         with:
           folder: ai-driven-genomics-book/dist/ai-driven-genomics-book
           branch: gh-pages
+          token: ${{ secrets.GH_TOKEN }}
