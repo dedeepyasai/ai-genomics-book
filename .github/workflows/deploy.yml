@@ -17,12 +17,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16'
-          cache: 'npm'
 
       - name: Install dependencies
         run: |
           cd ai-driven-genomics-book
-          npm install  # Use npm install if there’s no lock file
+          npm install  # Use npm install, which does not require a lock file
 
       - name: Build
         run: |
