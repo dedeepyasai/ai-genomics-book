@@ -1,0 +1,19 @@
+<div class="bg-white rounded-lg shadow p-6" *ngIf="exercise">
+    <h3 class="text-xl font-semibold mb-2">{{exercise.title}}</h3>
+    <p class="text-gray-600 mb-4">{{exercise.description}}</p>
+    
+    <div class="mb-4">
+      <h4 class="font-medium mb-2">Starter Code:</h4>
+      <pre class="bg-gray-50 p-4 rounded"><code>{{exercise.starterCode}}</code></pre>
+    </div>
+  
+    <button (click)="toggleSolution"
+            class="text-indigo-600 hover:text-indigo-800">
+      {{showSolution ? 'Hide Solution' : 'Show Solution'}}
+    </button>
+  
+    <div *ngIf="showSolution" class="mt-4">
+      <h4 class="font-medium mb-2">Solution:</h4>
+      <pre class="bg-gray-50 p-4 rounded"><code>{{exercise.solution}}</code></pre>
+    </div>
+  </div>

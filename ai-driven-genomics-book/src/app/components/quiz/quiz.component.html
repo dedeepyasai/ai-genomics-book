@@ -1,0 +1,36 @@
+<div class="space-y-6">
+    <div *ngFor="let question of questions; let i = index" class="bg-white rounded-lg shadow p-6">
+      <p class="text-lg font-medium mb-4">{{i + 1}}. {{question.question}}</p>
+      
+      <div class="space-y-2">
+        <div *ngFor="let option of question.options"
+             class="flex items-center">
+          <input type="radio"
+                 [name]="'question' + i"
+                 [value]="option"
+                 [(ngModel)]="selectedAnswers[i]"
+                 class="h-4 w-4 text-indigo-600">
+          <label class="ml-2">{{option}}</label>
+        </div>
+      </div>
+  
+      <div *ngIf="showResults && selectedAnswers[i]"
+           class="mt-4 p-4 rounded-lg"
+           [ngClass]="{
+             'bg-green-50 text-green-800': selectedAnswers[i] === question.correctAnswer,
+             'bg-red-50 text-red-800': selectedAnswers[i] !== question.correctAnswer
+           }">
+        <p *ngIf="selectedAnswers[i] === question.correctAnswer">
+          ✓ Correct!
+        </p>
+        <p *ngIf="selectedAnswers[i] !== question.correctAnswer">
+          ✗ Incorrect. The correct answer is: {{question.correctAnswer}}
+        </p>
+      </div>
+    </div>
+  
+    <button (click)="checkAnswers()"
+            class="mt-6 bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700">
+      {{showResults ? 'Try Again' : 'Check Answers'}}
+    </button>
+  </div>
