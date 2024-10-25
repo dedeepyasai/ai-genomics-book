@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd ai-driven-genomics-book
-          npm ci
+          npm install  # Use npm install if there’s no lock file
 
       - name: Build
         run: |
